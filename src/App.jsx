@@ -3,7 +3,7 @@ import "./App.css";
 
 export default function TodoApp() {
   const [todos, setTodos] = useState(() => {
-   // Load from localStorage on first render
+    // Load from localStorage on first render
     const storedTodos = localStorage.getItem("todos");
     return storedTodos ? JSON.parse(storedTodos) : [];
   });
@@ -73,7 +73,8 @@ export default function TodoApp() {
         {todos.map((t) => (
           <li key={t.id} className={`listItem ${t.completed ? "done" : ""}`}>
             <span onClick={() => handleToggle(t.id)}>{t.text}</span>
-            <div>
+            {/* Replaced <div> with .btnGroup */}
+            <div className="btnGroup">
               <button onClick={() => handleEdit(t.id)} className="editBtn">
                 Edit
               </button>
